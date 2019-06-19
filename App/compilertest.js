@@ -1,8 +1,7 @@
 "use strict";
-var Test = (function () {
-    function Test(message) {
+class Test {
+    constructor(message) {
         this.message = message;
     }
-    return Test;
-}());
+}
 exports.Test = Test;
