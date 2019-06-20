@@ -14,6 +14,9 @@ let ProductComponent = class ProductComponent {
     constructor() {
         this.model = new repository_model_1.Model();
     }
+    getClasses() {
+        return this.model.getProducts().length == 5 ? "bg-success" : "bg-warning";
+    }
 };
 ProductComponent = __decorate([
     core_1.Component({

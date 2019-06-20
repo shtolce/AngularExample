@@ -1,3 +1,4 @@
-<div class="bg-info p-a-1">
+<div [ngClass]="'p-a-1 '  + getClasses()">
     There are {{model.getProducts().length}} products in the model
 </div>
+<input class="form-control" [value]="model.getProduct(1).name||'None'"/>
