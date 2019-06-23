@@ -11,17 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const repository_model_1 = require('./repository.model');
 const core_1 = require("@angular/core");
 let ProductComponent = class ProductComponent {
-    constructor(ref) {
+    constructor() {
         this.model = new repository_model_1.Model();
-        this.targetName = "Kayak";
-        window.appRef = ref;
-        window.model = this.model;
-    }
-    getProductByPosition(position) {
-        return this.model.getProducts()[position];
-    }
-    getClasses() {
-        return this.model.getProducts().length == 5 ? "bg-success" : "bg-warning";
     }
     getProduct(key) {
         return this.model.getProduct(key);
@@ -29,8 +20,9 @@ let ProductComponent = class ProductComponent {
     getProducts() {
         return this.model.getProducts();
     }
-    getProductCount() {
-        return this.getProducts().length;
+    getSelected(product) {
+        console.log(this.selectedProduct);
+        return product.name == this.selectedProduct;
     }
 };
 ProductComponent = __decorate([
@@ -38,6 +30,6 @@ ProductComponent = __decorate([
         selector: "app",
         templateUrl: "app/template.html"
     }), 
-    __metadata('design:paramtypes', [core_1.ApplicationRef])
+    __metadata('design:paramtypes', [])
 ], ProductComponent);
 exports.ProductComponent = ProductComponent;
