@@ -9,10 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const repository_model_1 = require('./repository.model');
+const product_model_1 = require("./product.model");
 const core_1 = require("@angular/core");
 let ProductComponent = class ProductComponent {
     constructor() {
         this.model = new repository_model_1.Model();
+        this.newProduct = new product_model_1.Product;
     }
     getProduct(key) {
         return this.model.getProduct(key);
@@ -20,9 +22,12 @@ let ProductComponent = class ProductComponent {
     getProducts() {
         return this.model.getProducts();
     }
-    getSelected(product) {
-        console.log(this.selectedProduct);
-        return product.name == this.selectedProduct;
+    get jsonProduct() {
+        console.log(this.newProduct);
+        return JSON.stringify(this.newProduct);
+    }
+    addProduct(p) {
+        console.log("New product: " + this.jsonProduct);
     }
 };
 ProductComponent = __decorate([
