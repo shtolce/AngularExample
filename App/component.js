@@ -15,6 +15,7 @@ let ProductComponent = class ProductComponent {
     constructor() {
         this.model = new repository_model_1.Model();
         this.newProduct = new product_model_1.Product;
+        this.formSubmitted = false;
     }
     getProduct(key) {
         return this.model.getProduct(key);
@@ -28,6 +29,43 @@ let ProductComponent = class ProductComponent {
     }
     addProduct(p) {
         console.log("New product: " + this.jsonProduct);
+    }
+    getValidationMessage(state, thingName) {
+        let thing = state.path || thingName;
+        let messages = [];
+        if (state.errors) {
+            for (let errorName in state.errors) {
+                switch (errorName) {
+                    case "required":
+                        messages.push(`You must enter a ${thing}`);
+                        break;
+                    case "minlegth":
+                        messages.push(`A ${thing} must be at least
+                        ${state.errors['minlength'].requiredLength} characters`);
+                        break;
+                    case "pattern":
+                        messages.push(`The ${thing} contains illegal characters`);
+                        break;
+                }
+            }
+        }
+        return messages;
+    }
+    getFormValidationMessages(form) {
+        let messages = [];
+        Object.keys(form.controls).forEach(k => {
+            this.getValidationMessage(form.controls[k], k).forEach(m => messages.push(m));
+        });
+        return messages;
+    }
+    submitForm(form) {
+        this.formSubmitted = true;
+        if (form.valid) {
+            this.addProduct(this.newProduct);
+            this.newProduct = new product_model_1.Product();
+            form.reset();
+            form.submitted = false;
+        }
     }
 };
 ProductComponent = __decorate([
