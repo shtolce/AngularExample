@@ -8,12 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+const core_1 = require("@angular/core");
 const repository_model_1 = require('./repository.model');
 const product_model_1 = require("./product.model");
-const core_1 = require("@angular/core");
+const form_model_1 = require("./form.model");
 let ProductComponent = class ProductComponent {
     constructor() {
         this.model = new repository_model_1.Model();
+        this.form = new form_model_1.ProductFormGroup();
         this.newProduct = new product_model_1.Product;
         this.formSubmitted = false;
     }
@@ -30,41 +32,13 @@ let ProductComponent = class ProductComponent {
     addProduct(p) {
         console.log("New product: " + this.jsonProduct);
     }
-    getValidationMessage(state, thingName) {
-        let thing = state.path || thingName;
-        let messages = [];
-        if (state.errors) {
-            for (let errorName in state.errors) {
-                switch (errorName) {
-                    case "required":
-                        messages.push(`You must enter a ${thing}`);
-                        break;
-                    case "minlegth":
-                        messages.push(`A ${thing} must be at least
-                        ${state.errors['minlength'].requiredLength} characters`);
-                        break;
-                    case "pattern":
-                        messages.push(`The ${thing} contains illegal characters`);
-                        break;
-                }
-            }
-        }
-        return messages;
-    }
-    getFormValidationMessages(form) {
-        let messages = [];
-        Object.keys(form.controls).forEach(k => {
-            this.getValidationMessage(form.controls[k], k).forEach(m => messages.push(m));
-        });
-        return messages;
-    }
     submitForm(form) {
         this.formSubmitted = true;
         if (form.valid) {
             this.addProduct(this.newProduct);
             this.newProduct = new product_model_1.Product();
             form.reset();
-            form.submitted = false;
+            this.formSubmitted = false;
         }
     }
 };
