@@ -23,7 +23,7 @@ export class ProductComponent {
         return JSON.stringify(this.newProduct);
     }
     addProduct(p:Product){
-        console.log("New product: "+this.jsonProduct);
+        this.model.saveProduct(p);
     }
 
     formSubmitted: boolean = false;

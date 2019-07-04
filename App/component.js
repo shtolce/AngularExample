@@ -30,7 +30,7 @@ let ProductComponent = class ProductComponent {
         return JSON.stringify(this.newProduct);
     }
     addProduct(p) {
-        console.log("New product: " + this.jsonProduct);
+        this.model.saveProduct(p);
     }
     submitForm(form) {
         this.formSubmitted = true;
