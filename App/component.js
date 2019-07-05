@@ -18,6 +18,7 @@ let ProductComponent = class ProductComponent {
         this.form = new form_model_1.ProductFormGroup();
         this.newProduct = new product_model_1.Product;
         this.formSubmitted = false;
+        this.showTable = true;
     }
     getProduct(key) {
         return this.model.getProduct(key);

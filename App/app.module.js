@@ -14,12 +14,14 @@ const component_1 = require('./component');
 const forms_1 = require("@angular/forms");
 const attr_directive_1 = require("./attr.directive");
 const twoway_directive_1 = require("./twoway.directive");
+const paif_directive_1 = require("./paif.directive");
+const iterator_directive_1 = require("./iterator.directive");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
-        declarations: [component_1.ProductComponent, attr_directive_1.PaAttrDirective, twoway_directive_1.PaModel],
+        declarations: [component_1.ProductComponent, attr_directive_1.PaAttrDirective, twoway_directive_1.PaModel, paif_directive_1.PaStructureDirective, iterator_directive_1.PaIteratorDirective],
         bootstrap: [component_1.ProductComponent]
     }), 
     __metadata('design:paramtypes', [])
