@@ -22,7 +22,6 @@ ProductComponent = __decorate([
     core_1.Component({
         selector: "app",
         templateUrl: "app/template.html",
-        styles: [">>> div { border: 2px black solid; font-style:italic }"]
     }), 
     __metadata('design:paramtypes', [])
 ], ProductComponent);

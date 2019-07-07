@@ -11,10 +11,15 @@ import { PaCellColorSwitcher } from "./cellColorSwitcher.directive";
 import { ProductTablecomponent} from "./productTable.component";
 import {ProductFormcomponent} from "./productForm.component";
 import { PaToggleView } from "./toggleView.component";
+import { PaAddTaxPipe } from "./addTax.pipe";
+import { PaCategoryFilterPipe } from "./categoryFilter.pipe";
+import { LOCALE_ID } from "@angular/core";
 @NgModule({
     imports: [ BrowserModule,FormsModule,ReactiveFormsModule ],
     declarations: [ProductComponent, PaAttrDirective, PaModel,PaStructureDirective, PaIteratorDirective,
-                   PaCellColor, PaCellColorSwitcher,ProductTablecomponent,ProductFormcomponent, PaToggleView],
+                   PaCellColor, PaCellColorSwitcher,ProductTablecomponent,ProductFormcomponent, PaToggleView,
+                   PaAddTaxPipe,PaCategoryFilterPipe],
+    providers: [{ provide: LOCALE_ID, useValue: "ru-RU" }],
     bootstrap: [ProductComponent]
 })
 export class AppModule {}
