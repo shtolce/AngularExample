@@ -9,44 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require("@angular/core");
-const repository_model_1 = require('./repository.model');
-const product_model_1 = require("./product.model");
-const form_model_1 = require("./form.model");
+const repository_model_1 = require("./repository.model");
 let ProductComponent = class ProductComponent {
     constructor() {
         this.model = new repository_model_1.Model();
-        this.form = new form_model_1.ProductFormGroup();
-        this.newProduct = new product_model_1.Product;
-        this.formSubmitted = false;
-        this.showTable = true;
-    }
-    getProduct(key) {
-        return this.model.getProduct(key);
-    }
-    getProducts() {
-        return this.model.getProducts();
-    }
-    get jsonProduct() {
-        console.log(this.newProduct);
-        return JSON.stringify(this.newProduct);
     }
     addProduct(p) {
         this.model.saveProduct(p);
-    }
-    submitForm(form) {
-        this.formSubmitted = true;
-        if (form.valid) {
-            this.addProduct(this.newProduct);
-            this.newProduct = new product_model_1.Product();
-            form.reset();
-            this.formSubmitted = false;
-        }
     }
 };
 ProductComponent = __decorate([
     core_1.Component({
         selector: "app",
-        templateUrl: "app/template.html"
+        templateUrl: "app/template.html",
+        styles: [">>> div { border: 2px black solid; font-style:italic }"]
     }), 
     __metadata('design:paramtypes', [])
 ], ProductComponent);

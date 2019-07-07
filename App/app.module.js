@@ -16,12 +16,18 @@ const attr_directive_1 = require("./attr.directive");
 const twoway_directive_1 = require("./twoway.directive");
 const paif_directive_1 = require("./paif.directive");
 const iterator_directive_1 = require("./iterator.directive");
+const cellColor_directive_1 = require("./cellColor.directive");
+const cellColorSwitcher_directive_1 = require("./cellColorSwitcher.directive");
+const productTable_component_1 = require("./productTable.component");
+const productForm_component_1 = require("./productForm.component");
+const toggleView_component_1 = require("./toggleView.component");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
-        declarations: [component_1.ProductComponent, attr_directive_1.PaAttrDirective, twoway_directive_1.PaModel, paif_directive_1.PaStructureDirective, iterator_directive_1.PaIteratorDirective],
+        declarations: [component_1.ProductComponent, attr_directive_1.PaAttrDirective, twoway_directive_1.PaModel, paif_directive_1.PaStructureDirective, iterator_directive_1.PaIteratorDirective,
+            cellColor_directive_1.PaCellColor, cellColorSwitcher_directive_1.PaCellColorSwitcher, productTable_component_1.ProductTablecomponent, productForm_component_1.ProductFormcomponent, toggleView_component_1.PaToggleView],
         bootstrap: [component_1.ProductComponent]
     }), 
     __metadata('design:paramtypes', [])
