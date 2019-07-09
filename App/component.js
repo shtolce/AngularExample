@@ -9,14 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require("@angular/core");
-const repository_model_1 = require("./repository.model");
+//import { Model } from "./repository.model";
+//import { Product } from "./product.model";
+//import { ProductFormGroup } from "./form.model";
 let ProductComponent = class ProductComponent {
-    constructor() {
-        this.model = new repository_model_1.Model();
-    }
-    addProduct(p) {
-        this.model.saveProduct(p);
-    }
 };
 ProductComponent = __decorate([
     core_1.Component({

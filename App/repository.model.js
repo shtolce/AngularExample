@@ -1,9 +1,20 @@
 "use strict";
-const datasource_mode_1 = require('./datasource.mode');
-class Model {
-    constructor() {
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+const datasource_model_1 = require('./datasource.model');
+const core_1 = require("@angular/core");
+let Model = class Model {
+    constructor(dataSource) {
+        this.dataSource = dataSource;
         this.locator = (p, id) => p.id == id;
-        this.dataSource = new datasource_mode_1.SimpleDataSource();
+        //this.dataSource=new SimpleDataSource();
         this.products = new Array();
         this.dataSource.getData().forEach(p => this.products.push(p));
     }
@@ -36,5 +47,9 @@ class Model {
             this.products.splice(index, 1);
         }
     }
-}
+};
+Model = __decorate([
+    core_1.Injectable(), 
+    __metadata('design:paramtypes', [datasource_model_1.SimpleDataSource])
+], Model);
 exports.Model = Model;

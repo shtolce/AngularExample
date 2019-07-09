@@ -29,6 +29,8 @@ const discountEditor_component_1 = require("./discountEditor.component");
 const discount_service_1 = require("./discount.service");
 const discount_pipe_1 = require("./discount.pipe");
 const discountAmount_directive_1 = require("./discountAmount.directive");
+const datasource_model_1 = require("./datasource.model");
+const repository_model_1 = require("./repository.model");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -38,7 +40,7 @@ AppModule = __decorate([
             cellColor_directive_1.PaCellColor, cellColorSwitcher_directive_1.PaCellColorSwitcher, productTable_component_1.ProductTablecomponent, productForm_component_1.ProductFormcomponent, toggleView_component_1.PaToggleView,
             addTax_pipe_1.PaAddTaxPipe, categoryFilter_pipe_1.PaCategoryFilterPipe, discountDisplay_component_1.PaDiscountDisplayComponent, discountEditor_component_1.PaDiscountEditorComponent,
             discount_pipe_1.PaDiscountPipe, discountAmount_directive_1.PaDiscountAmountDirective],
-        providers: [{ provide: core_2.LOCALE_ID, useValue: "ru-RU" }, discount_service_1.DiscountService],
+        providers: [{ provide: core_2.LOCALE_ID, useValue: "ru-RU" }, discount_service_1.DiscountService, datasource_model_1.SimpleDataSource, repository_model_1.Model],
         bootstrap: [component_1.ProductComponent]
     }), 
     __metadata('design:paramtypes', [])
