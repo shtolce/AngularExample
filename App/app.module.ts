@@ -21,13 +21,17 @@ import { PaDiscountPipe } from "./discount.pipe";
 import { PaDiscountAmountDirective } from "./discountAmount.directive";
 import { SimpleDataSource } from "./datasource.model";
 import { Model } from "./repository.model";
+import { LogService, LOG_SERVICE, SpecialLogService, LogLevel } from "./log.service";
+let logger = new LogService();
+logger.minimumLevel = LogLevel.DEBUG;
 @NgModule({
     imports: [ BrowserModule,FormsModule,ReactiveFormsModule ],
     declarations: [ProductComponent, PaAttrDirective, PaModel,PaStructureDirective, PaIteratorDirective,
                    PaCellColor, PaCellColorSwitcher,ProductTablecomponent,ProductFormcomponent, PaToggleView,
                    PaAddTaxPipe,PaCategoryFilterPipe,PaDiscountDisplayComponent, PaDiscountEditorComponent,
                    PaDiscountPipe,PaDiscountAmountDirective],
-    providers: [{ provide: LOCALE_ID, useValue: "ru-RU" },DiscountService,SimpleDataSource, Model],
+    providers: [{ provide: LOCALE_ID, useValue: "ru-RU" },DiscountService,SimpleDataSource, Model,
+                { provide: LogService, useValue: logger } ],
     bootstrap: [ProductComponent]
 })
 export class AppModule {}
